@@ -9,6 +9,9 @@ const PostSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  created_by: {
+    type: String,
+  },
   date: {
     type: Date,
     default: Date.now,

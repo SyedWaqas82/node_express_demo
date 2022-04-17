@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
+const validateRequest = require('../middlewares/validate_request');
+const schemas = require('../schemas');
 
 router.get('/', async (req, res) => {
   try {
@@ -11,8 +13,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  const post = new Post({ title: req.body.title, description: req.body.description });
+router.post('/', validateRequest(schemas.postPost), async (req, res) => {
+  const post = new Post({
+    title: req.body.title,
+    description: req.body.description,
+    created_by: `${req.user.first_name} ${req.user.last_name}`,
+  });
 
   try {
     const savedPost = await post.save();
@@ -40,9 +46,12 @@ router.delete('/:postId', async (req, res) => {
   }
 });
 
-router.patch('/:postId', async (req, res) => {
+router.patch('/:postId', validateRequest(schemas.postPatch), async (req, res) => {
   try {
-    const updatedPost = await Post.updateOne({ _id: req.params.postId }, { $set: { title: req.body.title } });
+    const updatedPost = await Post.updateOne(
+      { _id: req.params.postId },
+      { $set: { title: req.body.title, description: req.body.description } }
+    );
     res.json(updatedPost);
   } catch (err) {
     res.status(400).json({ message: err });

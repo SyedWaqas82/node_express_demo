@@ -9,6 +9,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const auth = require('./middlewares/auth');
 
 //Middlewares
 app.use(cors());
@@ -16,11 +17,13 @@ app.use(bodyParser.json());
 
 //Import Routes
 const postsRoute = require('./routes/posts');
-app.use('/posts', postsRoute);
+const usersRoute = require('./routes/users');
+app.use('/posts', auth, postsRoute);
+app.use('/accounts', usersRoute);
 
 //ROUTES
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get('/', auth, (req, res) => {
+  res.send(`Hello ${req.user.first_name} ${req.user.last_name}`);
 });
 
 //Connect To DB

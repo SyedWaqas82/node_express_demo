@@ -1,0 +1,75 @@
+GET http://localhost:5000/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk4Mzk1LCJleHAiOjE2NTAyMDU1OTV9.zIXARSQx-OIhPW_0HdzkshZy53pUS5Ku9QJr9qGGFBQ
+
+###
+
+GET http://localhost:5000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk4Mzk1LCJleHAiOjE2NTAyMDU1OTV9.zIXARSQx-OIhPW_0HdzkshZy53pUS5Ku9QJr9qGGFBQ
+
+###
+
+POST http://localhost:5000/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk4Mzk1LCJleHAiOjE2NTAyMDU1OTV9.zIXARSQx-OIhPW_0HdzkshZy53pUS5Ku9QJr9qGGFBQ
+
+{
+    "title" : "this is a secured title",
+    "description" : "this is description describing this secured post"
+}
+
+###
+GET http://localhost:5000/posts/625c05839b56d88ac6ee34e9
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk4Mzk1LCJleHAiOjE2NTAyMDU1OTV9.zIXARSQx-OIhPW_0HdzkshZy53pUS5Ku9QJr9qGGFBQ
+
+###
+PATCH http://localhost:5000/posts/625c052a9b56d88ac6ee34e3
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk4Mzk1LCJleHAiOjE2NTAyMDU1OTV9.zIXARSQx-OIhPW_0HdzkshZy53pUS5Ku9QJr9qGGFBQ
+
+{
+    "title": "this is updated secured title",
+    "description": "this is updated description describing this secured post"
+}
+
+###
+DELETE http://localhost:5000/posts/625c0401c216ec8bc74ac143
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk4Mzk1LCJleHAiOjE2NTAyMDU1OTV9.zIXARSQx-OIhPW_0HdzkshZy53pUS5Ku9QJr9qGGFBQ
+
+###
+
+POST http://localhost:5000/accounts/register
+Content-Type: application/json
+
+{
+    "first_name" : "Syed Waqas",
+    "last_name" : "Ali Shah",
+    "email": "waqas_sayed@hotmail.com",
+    "password":"qwerty123"
+}
+
+###
+POST http://localhost:5000/accounts/login
+Content-Type: application/json
+
+{
+    "email": "waqas_sayed@hotmail.com",
+    "password": "qwerty123"
+}
+
+###
+POST http://localhost:5000/accounts/token
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk0NDI4fQ.apiuOclO1bRAqmOwU0MWv4EyLZaeKNJg8DjDv4J9aJo"
+}
+
+###
+DELETE http://localhost:5000/accounts/logout
+Content-Type: application/json
+
+{
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk0NDI4fQ.apiuOclO1bRAqmOwU0MWv4EyLZaeKNJg8DjDv4J9aJo"
+}
