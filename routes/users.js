@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const Joi = require('joi');
 const bcrypt = require('bcrypt');
 const validateRequest = require('../middlewares/validate_request');
 const schemas = require('../schemas');
