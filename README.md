@@ -2,6 +2,7 @@
 
 - mongodb 5
 - node 16.14.2
+- redis 6.2.6
 
 ## Setup
 
@@ -22,6 +23,9 @@ docker exec -it [mongocotainername] bash
 ### enter mongosh shell
 mongosh -u [root]
 mongosh -u <your username> -p <your password> --authenticationDatabase <your database name>
+
+###connect to redis cli
+docker exec -it redis redis-cli
 
 ```
 
