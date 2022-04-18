@@ -73,3 +73,12 @@ Content-Type: application/json
 {
     "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWJkZDVhMWUzN2M3YWRiMDA1MWRiOSIsImZpcnN0X25hbWUiOiJTeWVkIFdhcWFzIiwibGFzdF9uYW1lIjoiQWxpIFNoYWgiLCJlbWFpbCI6IndhcWFzX3NheWVkQGhvdG1haWwuY29tIiwiaWF0IjoxNjUwMTk0NDI4fQ.apiuOclO1bRAqmOwU0MWv4EyLZaeKNJg8DjDv4J9aJo"
 }
+
+###
+GET http://localhost:5000/redis/photos
+
+###
+GET http://localhost:5000/redis/photos?albumId=2
+
+###
+GET http://localhost:5000/redis/photos/2

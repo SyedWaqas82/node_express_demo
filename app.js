@@ -18,8 +18,11 @@ app.use(bodyParser.json());
 //Import Routes
 const postsRoute = require('./routes/posts');
 const usersRoute = require('./routes/users');
+const redisRoute = require('./routes/redis');
+
 app.use('/posts', auth, postsRoute);
 app.use('/accounts', usersRoute);
+app.use('/redis', redisRoute);
 
 //ROUTES
 app.get('/', auth, (req, res) => {
