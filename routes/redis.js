@@ -61,4 +61,13 @@ function getOrSetCache(key, cb) {
   });
 }
 
+process.on('SIGINT', async function () {
+  //await redisClient.quit(); //let it finish pending
+  //client.disconnect(); //forcefully
+  (async () => {
+    await redisClient.disconnect();
+    console.log('redis client disconnected!!!');
+  })();
+});
+
 module.exports = router;

@@ -36,6 +36,16 @@ mongoose.connect(process.env.DB_CONNECTION, () => {
 
 //Listen
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Listening on port ${port}...`);
-});
+app
+  .listen(port, () => {
+    console.log(`Listening on port ${port}...`);
+  })
+  .on('error', function (err) {
+    console.log(err);
+    // if(err.errno === 'EADDRINUSE') {
+    //     console.log(`----- Port ${port} is busy, trying with port ${port + 1} -----`);
+    //     listen(port + 1)
+    // } else {
+    //     console.log(err);
+    // };
+  });
